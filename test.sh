@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "APK_FILE=${APK_FILE}"
-
+curl https://jsonplaceholder.typicode.com/posts
 # Paramètres du référentiel Nexus
 NEXUS_URL="http://127.0.0.1:8081/repository/flutter-apk/"
 NEXUS_USERNAME="admin"
