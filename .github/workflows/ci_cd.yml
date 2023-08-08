@@ -2,8 +2,9 @@ name : CI/CD
 on: push
 
 jobs:
-  setup:
+  Deploy:
     runs-on: windows-latest
+    name: Deploy apk on nexus repository
     steps:
       - uses: actions/checkout@v3
       - name: Run test.sh script
