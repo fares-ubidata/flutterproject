@@ -8,9 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       # - uses: dart-lang/setup-dart@v1
-      - run: .\test.sh
-      - run: curl https://jsonplaceholder.typicode.com/posts
-      - run: curl http://127.0.0.1:8081/repository/flutter-apk
+      - run: ./test.sh
+      - run: curl https://fcfa-62-72-97-221.ngrok-free.app/repository/flutter-apk
+      # - run: curl https://jsonplaceholder.typicode.com/posts
 
   # test:
   #   runs-on: windows-latest
