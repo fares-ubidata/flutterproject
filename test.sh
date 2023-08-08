@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "APK_FILE=${APK_FILE}"
 
 # Paramètres du référentiel Nexus
 NEXUS_URL="http://127.0.0.1:8081/repository/flutter-apk/"
@@ -7,7 +8,6 @@ NEXUS_PASSWORD="123456"
 
 # Chemin vers l'APK à déployer
 APK_FILE="build/app/outputs/flutter-apk/app-release.apk"
-echo "APK_FILE=${APK_FILE}"
 APP_VERSION="1.0.1"
 
 # Création de l'URL de déploiement
