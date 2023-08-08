@@ -7,7 +7,7 @@ NEXUS_PASSWORD="123456"
 
 # Chemin vers l'APK à déployer
 APK_FILE="build/app/outputs/flutter-apk/app-release.apk"
-
+echo "APK_FILE=${APK_FILE}"
 APP_VERSION="1.0.1"
 
 # Création de l'URL de déploiement
