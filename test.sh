@@ -8,7 +8,7 @@ NEXUS_PASSWORD="123456"
 
 # Chemin vers l'APK à déployer
 APK_FILE="build/app/outputs/flutter-apk/app-release.apk"
-APP_VERSION="1.0.1"
+APP_VERSION="1.0.2"
 
 # Création de l'URL de déploiement
 DEPLOY_URL="${NEXUS_URL}com/example/flutter-apk-artifact/${APP_VERSION}/flutter-apk-artifact-${APP_VERSION}.apk"
