@@ -1,7 +1,6 @@
 name : CI/CD
 on: push
 
-
 jobs:
   setup:
     runs-on: windows-latest
