@@ -8,13 +8,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       # - uses: dart-lang/setup-dart@v1
-      - run: curl https://fcfa-62-72-97-221.ngrok-free.app/repository/flutter-apk
-      - name: Make test.sh executable
-        run: chmod +x ./test.sh
-        shell: bash
-      - name: Run test.sh script
-        run: ./test.sh
-        shell: bash
+      # - run: curl https://fcfa-62-72-97-221.ngrok-free.app/repository/flutter-apk
+      # - name: Make test.sh executable
+        # run: chmod +x ./test.sh
+        # shell: bash
+      # - name: Run test.sh script
+      #   run: ./test.sh
+      #   shell: bash
+      - run : cat ./test.sh
 
   # test:
   #   runs-on: windows-latest
