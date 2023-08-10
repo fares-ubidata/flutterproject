@@ -30,3 +30,10 @@ jobs:
       with:
         name: app-release
         path: build/app/outputs/flutter-apk/app-release.apk
+        
+    - name: Set execute permissions for deploy.sh
+      run: chmod +x test.sh
+
+    - name: Run test deploy script
+      run: ./test.sh
+      shell: bash
