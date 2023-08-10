@@ -14,8 +14,8 @@ jobs:
 
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
-      with:
-        flutter-version: 2.x
+#       with:
+#         flutter-version: 2.x
         
     - name: Install dependencies and generate code
       run: |
