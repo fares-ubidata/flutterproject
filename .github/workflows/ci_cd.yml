@@ -1,39 +1,19 @@
-name: Build and Deploy APKs
+name: Delete old workflow runs
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 0 1 * *'
+# Run monthly, at 00:00 on the 1st day of month.
 
 jobs:
-  build:
+  del_runs:
     runs-on: ubuntu-latest
-    
+    permissions:
+      actions: write
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Set up Flutter
-      uses: subosito/flutter-action@v2
-#       with:
-#         flutter-version: 2.x
-        
-    - name: Install dependencies and generate code
-      run: |
-        flutter pub get
-        flutter pub run build_runner build --delete-conflicting-outputs
-        
-    - name: Build APKs
-      run: flutter build apk --release
-      
-    - name: Upload Artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: app-release
-        path: build/app/outputs/flutter-apk/app-release.apk
-        
-    - name: Set execute permissions for deploy.sh
-      run: chmod +x test.sh
-
-    - name: Run test deploy script
-      run: ./test.sh
-      shell: bash
+      - name: Delete workflow runs
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          token: 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
+          repository: flutterproject
+          retain_days: 30
+          keep_minimum_runs: 6
