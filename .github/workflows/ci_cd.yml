@@ -1,20 +1,28 @@
-name: Delete old workflow runs
+name: Delete all workflow runs
 
 on:
-  push:
-    branches:
-      - "*"
-      - "*/*"
-      - "**"
+  workflow_run:
+    types:
+      - completed
 
 jobs:
-  del_runs:
+  delete_runs:
     runs-on: ubuntu-latest
-    permissions:
-      actions: write
     steps:
-      - name: Delete workflow runs
-        uses: Mattraks/delete-workflow-runs@v2
-        with:
-          token: ${{ secrets.farestoken }}
-          repository: fares-ubidata/flutterproject
+      - name: List workflow runs
+        run: |
+          TOKEN="${{ secrets.GITHUB_TOKEN }}"
+          OWNER="${{ github.repository_owner }}"
+          REPO="${{ github.event.repository.name }}"
+          WORKFLOW_ID="${{ github.event.workflow.id }}"
+
+          # Get a list of all workflow runs
+          RUNS=$(curl -s -H "Authorization: Bearer $TOKEN" \
+                  "https://api.github.com/repos/$OWNER/$REPO/actions/workflows/$WORKFLOW_ID/runs")
+
+          # Extract run IDs and delete each run
+          for RUN_ID in $(echo "$RUNS" | jq -r '.workflow_runs[].id'); do
+            echo "Deleting workflow run $RUN_ID"
+            curl -X DELETE -H "Authorization: Bearer $TOKEN" \
+              "https://api.github.com/repos/$OWNER/$REPO/actions/runs/$RUN_ID"
+          done
