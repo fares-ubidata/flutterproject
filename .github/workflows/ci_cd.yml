@@ -15,6 +15,6 @@ jobs:
         uses: Mattraks/delete-workflow-runs@v2
         with:
           token: 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
-          repository: flutterproject
+          repository: https://github.com/fares-ubidata/flutterproject
           retain_days: 30
           keep_minimum_runs: 6
