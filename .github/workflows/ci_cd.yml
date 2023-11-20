@@ -14,5 +14,6 @@ jobs:
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
         with:
-          token: ${{ secrets.TOKEN }}
+          permissions: write-all
+          token: ${{ secrets.farestoken }}
           repository: fares-ubidata/flutterproject
