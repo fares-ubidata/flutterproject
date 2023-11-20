@@ -15,4 +15,4 @@ jobs:
         uses: Mattraks/delete-workflow-runs@v2
         with:
           token: ${{ secrets.TOKEN }}
-          repository: https://github.com/fares-ubidata/flutterproject
+          repository: fares-ubidata/flutterproject
